@@ -28,30 +28,36 @@ const completedSchedules = schedules.filter((schedule) => {
 return (
     <div>
         <div className="scheduled-pick-ups">
-            {pickUpSchedules.map((schedule) => (
-                <div key={schedule.id}>
+            {pickUpSchedules.map((schedule) => {
+                const user = users.find((user) => user.id === schedule.restaurantId);
+                return <div key={schedule.id}>
+                    <p>{user.name}</p>
                     <p>{schedule.date}</p>
-                    <p>{schedule.phone}</p>
                     <p>{schedule.compostType}</p>
-                    <p>{schedule.address}</p>
+                    <p>{user.phone}</p>
+                    <p>{user.address}</p>
                 </div>
-            ))}
+})}
         </div>
-
         <div className="scheduled-drop-offs">
-            {dropOffSchedules.map((schedule) => (
-                <div key={schedule.id}>
+            {dropOffSchedules.map((schedule) => {
+                const user = users.find((user) => user.id === schedule.restaurantId);
+               return <div key={schedule.id}>
+                    <p>{user.name}</p>
                     <p>{schedule.date}</p>
                 </div>
-            ))}
+})}
         </div>
 
         <div className="completed-schedules">
-            {completedSchedules.map((schedule) => (
-                <div key={schedule.id}>
+            {completedSchedules.map((schedule) => {
+                const user = users.find((user) => user.id === schedule.restaurantId);
+                return <div key={schedule.id}>
+                    <p>{user.name}</p>
                     <p>{schedule.date}</p>
                 </div>
-            ))}
+            })}
         </div>
     </div>
 );
+}
