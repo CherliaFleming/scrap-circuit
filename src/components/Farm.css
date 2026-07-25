@@ -1,0 +1,31 @@
+.scheduled-pick-ups {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.scheduled-pick-ups div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+}
+.scheduled-drop-offs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.scheduled-drop-offs div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+}
+.completed-schedules {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.completed-schedules div {
+    border: 1px solid #ccc;
+    padding: 10px;
