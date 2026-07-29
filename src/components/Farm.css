@@ -1,32 +1,22 @@
-.scheduled-pick-ups {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+.farmer-view {
+  display: flex;
+  gap: 20px;
 }
-.scheduled-pick-ups div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 6px;
-}
-.scheduled-drop-offs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-}
-.scheduled-drop-offs div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 6px;
-}
+
+.scheduled-pick-ups,
+.scheduled-drop-offs,
 .completed-schedules {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  min-width: 180px;
 }
+
+.scheduled-pick-ups div,
+.scheduled-drop-offs div,
 .completed-schedules div {
-    border: 1px solid #ccc;
-    padding: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }

@@ -1,32 +1,22 @@
-.scheduled-pick-drops {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+.restaurant-view {
+  display: flex;
+  gap: 20px;
 }
-.scheduled-pick-drops div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 6px;
-}
-.completed-pick-drops {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-}
-.completed-pick-drops div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 6px;
-}
+
+.scheduled-pick-drops,
+.completed-pick-drops,
 .denied-picks {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  min-width: 180px;
 }
+
+.scheduled-pick-drops div,
+.completed-pick-drops div,
 .denied-picks div {
-    border: 1px solid #ccc;
-    padding: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
