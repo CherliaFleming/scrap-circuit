@@ -28,6 +28,7 @@ const completedSchedules = schedules.filter((schedule) => {
 
 const handleComplete = (schedule) => {
     fetch(`http://localhost:8088/schedules/${schedule.id}`, {
+
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -36,9 +37,21 @@ const handleComplete = (schedule) => {
             ...schedule, 
             status:'Completed', 
         })
+    }) 
+    //allows card to dissapear on click 
+    .then(() => {
+        setSchedules(schedules.map((s) => {
+            if (s.id === schedule.id) {
+                return {
+                    ...s,
+                    status: 'Completed'
+                }
+            }
+            return s    
+        }))
     })
-    }
-
+}
+  
 const handleDeny = (schedule) => {
     fetch(`http://localhost:8088/schedules/${schedule.id}`, {
         method: 'PUT',
@@ -50,14 +63,25 @@ const handleDeny = (schedule) => {
             status:'Denied', 
         })
     })
-    }
+    .then(() => {
+        setSchedules(schedules.map((s) => {
+            if (s.id === schedule.id) {
+                return {
+                    ...s,
+                    status: 'Denied'
+                }
+            }
+            return s    
+        }))
+    })
+}
     
 return (
     <div>
         <div className="scheduled-pick-ups">
             {pickUpSchedules.map((schedule) => {
                 const user = users.find((user) => user.id === schedule.restaurantId);
-                //safety check for pick up 
+                //safety check for drop off
                 if (!user) {
                     return null;
                 }
@@ -84,6 +108,8 @@ return (
                 
                     <p>{user.name}</p>
                     <p>{schedule.date}</p>
+                    <button onClick={() => handleComplete(schedule)}>Complete</button>
+                <button onClick={() => handleDeny(schedule)}>Deny</button>
                 </div>
 })}
         </div>
@@ -104,3 +130,4 @@ return (
     </div>
 );
 }
+
