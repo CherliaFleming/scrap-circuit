@@ -25,24 +25,63 @@ const dropOffSchedules = schedules.filter((schedule) => {
 
 const completedSchedules = schedules.filter((schedule) => {
    return schedule.status === 'Completed'});
+
+const handleComplete = (schedule) => {
+    fetch(`http://localhost:8088/schedules/${schedule.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ...schedule, 
+            status:'Completed', 
+        })
+    })
+    }
+
+const handleDeny = (schedule) => {
+    fetch(`http://localhost:8088/schedules/${schedule.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ...schedule, 
+            status:'Denied', 
+        })
+    })
+    }
+    
 return (
     <div>
         <div className="scheduled-pick-ups">
             {pickUpSchedules.map((schedule) => {
                 const user = users.find((user) => user.id === schedule.restaurantId);
+                //safety check for pick up 
+                if (!user) {
+                    return null;
+                }
                 return <div key={schedule.id}>
                     <p>{user.name}</p>
                     <p>{schedule.date}</p>
                     <p>{schedule.compostType}</p>
                     <p>{user.phone}</p>
                     <p>{user.address}</p>
+                    <button onClick={() => handleComplete(schedule)}>Complete</button>
+                <button onClick={() => handleDeny(schedule)}>Deny</button>
                 </div>
+                
 })}
         </div>
         <div className="scheduled-drop-offs">
             {dropOffSchedules.map((schedule) => {
                 const user = users.find((user) => user.id === schedule.restaurantId);
+                //safety check for pick up 
+                if (!user) {
+                    return null;
+                }
                return <div key={schedule.id}>
+                
                     <p>{user.name}</p>
                     <p>{schedule.date}</p>
                 </div>
@@ -52,6 +91,10 @@ return (
         <div className="completed-schedules">
             {completedSchedules.map((schedule) => {
                 const user = users.find((user) => user.id === schedule.restaurantId);
+                //safety check for pick up 
+                if (!user) {
+                    return null;
+                }
                 return <div key={schedule.id}>
                     <p>{user.name}</p>
                     <p>{schedule.date}</p>
