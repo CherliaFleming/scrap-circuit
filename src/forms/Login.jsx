@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 
-const Login = () => {
+export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+    fetch('http://localhost:8088/users')
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -13,9 +21,15 @@ const Login = () => {
     };
 
     const handleSubmit = (event) => {
+        //stops the browser's default behavior for form submission
         event.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
+
+        const findUser = users.find((user) => user.email === email && user.password === password);
+        if (findUser) {
+            alert('Login successful');
+        } else {
+            alert('Invalid email or password');
+        }
     };
 
     return (
