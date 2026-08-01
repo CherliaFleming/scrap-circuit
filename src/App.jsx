@@ -4,6 +4,7 @@ import { RestPickDrop } from './components/RestPickDrop.jsx'
 import MainView from './views/MainView.jsx' //default export no curly braces
 import { Routes, Route } from 'react-router-dom'
 import { Login } from './forms/Login.jsx'
+import { Register } from './forms/Register.jsx'
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
      <Route path="/farmer" element={<FarmPickDrop />}/>
      <Route path="/restaurant" element={<RestPickDrop />}/>
      <Route path="/login" element={<Login />} />
+     <Route path="/register" element={<Register />} />
     </Routes>
     </div>
   )

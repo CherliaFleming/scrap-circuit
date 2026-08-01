@@ -1,4 +1,7 @@
 import { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
+
+export const useNavigate = useNavigate();
 
 export const Login = () => {
     const [email, setEmail] = useState('');
