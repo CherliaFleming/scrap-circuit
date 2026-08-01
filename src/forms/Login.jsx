@@ -6,6 +6,7 @@ export const Login = () => {
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState([]);
 
+    //added same navigate logic as Register.jsx so new user gets sent stright to their specified view
  const navigate = useNavigate();
 
   useEffect(() => {

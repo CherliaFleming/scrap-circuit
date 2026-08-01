@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
     const [role, setRole] = useState('');
@@ -7,6 +8,8 @@ export const Register = () => {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+const navigate = useNavigate();
 
 const handleNameChange = (event) => {
     setName(event.target.value);
@@ -46,6 +49,9 @@ event.preventDefault();
            email,
            password
        })
+       //added .then to wait for fetch to complete; temp put login until I create the other user views 
+   }).then(() => {
+       navigate('/login')
    })
 }
 
