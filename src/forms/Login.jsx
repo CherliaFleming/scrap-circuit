@@ -27,9 +27,6 @@ export const Login = () => {
         //stops the browser's default behavior for form submission
         event.preventDefault();
         
-        console.log(users
-            
-        )
         const findUser = users.find((user) => user.email === email && user.password === password);
         if (findUser) {
             localStorage.setItem('id', findUser.id);
