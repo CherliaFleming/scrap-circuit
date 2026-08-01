@@ -7,6 +7,7 @@ import { Login } from './forms/Login.jsx'
 import { Register } from './forms/Register.jsx'
 import { FarmView } from './views/FarmView.jsx'
 import { RestView } from './views/RestView.jsx'
+import { SchedulePickDrop } from './forms/SchedulePickDrop.jsx'
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
      <Route path="/restaurant" element={<RestView />}/>
      <Route path="/login" element={<Login />} />
      <Route path="/register" element={<Register />} />
+     <Route path="/schedule" element={<SchedulePickDrop />} />
     </Routes>
     </div>
   )

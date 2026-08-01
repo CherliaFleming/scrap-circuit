@@ -1,9 +1,8 @@
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FarmPickDrop } from '../components/FarmPickDrop';
 
 
-const SchedulePickDrop = () => {
+export const SchedulePickDrop = () => {
     const [farmName, setFarmName] = useState('');
     const [compostType, setCompostType] = useState('');
     const [date, setDate] = useState('');
@@ -59,3 +58,4 @@ const SchedulePickDrop = () => {
         <button type="submit">Submit</button>
         </div>
     )
+}
